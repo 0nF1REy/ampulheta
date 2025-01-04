@@ -1,0 +1,214 @@
+:root {
+    --sand-color: #edd0aa;
+    --frame-color: #c19875;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg,
+            rgb(196, 187, 167),
+            rgb(0, 0, 0),
+            rgb(173, 161, 142),
+            rgb(0, 0, 0),
+            rgb(152, 144, 125),
+            rgb(0, 0, 0),
+            rgb(139, 131, 112),
+            rgb(0, 0, 0),
+            rgb(118, 112, 96),
+            rgb(0, 0, 0),
+            rgb(101, 97, 83),
+            rgb(0, 0, 0),
+            rgb(87, 83, 70),
+            rgb(0, 0, 0),
+            rgb(75, 71, 58),
+            rgb(0, 0, 0),
+            rgb(63, 60, 48),
+            rgb(0, 0, 0),
+            rgb(55, 52, 41),
+            rgb(0, 0, 0),
+            rgb(45, 43, 33),
+            rgb(0, 0, 0),
+            rgb(34, 33, 25),
+            rgb(0, 0, 0),
+            rgb(24, 23, 17),
+            rgb(0, 0, 0),
+            rgb(16, 15, 11),
+            rgb(0, 0, 0),
+            rgb(9, 9, 6),
+            rgb(0, 0, 0),
+            rgb(4, 4, 2),
+            rgb(0, 0, 0));
+    background-size: 300% 300%;
+    overflow: hidden;
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+header {
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header h1 {
+    color: azure;
+    font-size: 2.5em;
+    font-family: spincycle;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.7rem;
+    animation: slideInFromLeft 3s ease-out forwards, stayInTheMiddle 2s 3s forwards, slideOutToRight 3s 5s ease-out forwards;
+    text-shadow:
+        2px 2px 2px rgba(95, 94, 94, 0.8),
+        2px 2px 4px rgba(164, 164, 164, 0.6),
+        2px 2px 16px rgba(236, 234, 234, 0.4);
+}
+
+header i {
+    color: bisque;
+    font-size: 20px;
+    text-shadow:
+        2px 2px 2px rgba(214, 5, 5, 0.8),
+        2px 2px 4px rgba(40, 203, 7, 0.6),
+        2px 2px 16px rgba(7, 42, 179, 0.4);
+}
+
+.ampulheta {
+    width: 180px;
+    height: 220px;
+    animation: slideIn 5s ease-in-out;
+    margin-top: 125px;
+    z-index: 500;
+}
+
+.ampulheta .frame {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    border-radius: 6px;
+    border-top: 10px solid var(--frame-color);
+    border-bottom: 10px solid var(--frame-color);
+    animation: Rotation 5s infinite;
+}
+
+.ampulheta .top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 100px;
+    clip-path: polygon(45% 100%, 55% 100%, 100% 0, 0 0);
+}
+
+.ampulheta .top::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 100px;
+    background: var(--sand-color);
+    animation: Areia-caindo 5s infinite;
+}
+
+.ampulheta .top::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    width: 190px;
+    height: 190px;
+    transform: rotate(-90deg);
+    background: conic-gradient(from 0,
+            #fff 0,
+            transparent 90deg,
+            #fff 180deg);
+}
+
+.ampulheta .bottom {
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 100px;
+    clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+}
+
+.ampulheta .bottom::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 160px;
+    height: 100px;
+    background: var(--sand-color);
+    animation: Areia-enchimento 5s infinite;
+}
+
+.ampulheta .bottom .vidro {
+    position: absolute;
+    top: -90px;
+    left: -15px;
+    width: 190px;
+    height: 190px;
+    transform: rotate(-270deg);
+    background: conic-gradient(from 0,
+            #fff 0,
+            transparent 90deg,
+            #fff 180deg);
+}
+
+.ampulheta .drip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: Fade-drip 5s infinite;
+}
+
+.ampulheta .drip::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 3px;
+    height: 200px;
+    background: repeating-linear-gradient(to bottom,
+            var(--sand-color),
+            var(--sand-color) 5px,
+            transparent 5px,
+            transparent 10px);
+    animation: drip 5s infinite;
+}
+
+footer {
+    color: #00ffe1;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    animation: slideInFromRight 3s ease-out forwards, stayInTheMiddle 2s 3s forwards, slideOutToLeft 3s 5s ease-out forwards;
+    font-family: gamelia;
+    letter-spacing: 0.2rem;
+    text-shadow:
+        2px 2px 2px rgba(214, 5, 5, 0.8),
+        2px 2px 4px rgba(40, 203, 7, 0.6),
+        2px 2px 16px rgba(7, 42, 179, 0.4);
+
+}
